@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Livestock Disease Detection and Alert System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 1. WELCOME -->
+<section id="welcome" class="screen active">
+  <div class="herd"><span>🐄</span><span>🐐</span><span>🐑</span><span>🐃</span></div>
+  <div class="logo">🐄<i>+</i></div>
+  <h1>Smart Livestock Disease Detection and Alert System</h1>
+  <p class="tag">Monitor • Detect • Protect</p>
+  <button class="btn big" onclick="screen('authScreen')">Get Started</button>
+</section>
+
+<!-- 2. AUTH -->
+<section id="authScreen" class="screen">
+  <form id="authForm" class="card auth" novalidate>
+    <div class="logo sm">🐄</div>
+    <div class="tabs"><button type="button" id="tLogin" class="on" onclick="setMode('login')">Login</button><button type="button" id="tSignup" onclick="setMode('signup')">Sign Up</button></div>
+    <label>Email<input id="email" type="email" placeholder="farmer@example.com"></label>
+    <label>Password<span class="pw"><input id="pass" type="password" placeholder="Min 6 characters"><button type="button" onclick="togglePw()" aria-label="Show password">👁</button></span></label>
+    <p id="authErr" class="err"></p>
+    <button class="btn" id="authBtn">Login</button>
+    <small id="modeNote"></small>
+  </form>
+</section>
+
+<!-- APP SHELL -->
+<div id="appShell" class="screen">
+  <nav id="nav">
+    <div class="brand">🐄 <b>LiveGuard</b></div>
+    <button data-v="dashboard" onclick="nav('dashboard')"><i>🏠</i>Home</button>
+    <button data-v="animals" onclick="nav('animals')"><i>🐄</i>Animals</button>
+    <button data-v="detect" onclick="nav('detect')"><i>🔬</i>Detect</button>
+    <button data-v="alerts" onclick="nav('alerts')"><i>🔔</i>Alerts<em id="badge"></em></button>
+    <button data-v="monitor" onclick="nav('monitor')"><i>📈</i>Monitor</button>
+    <button data-v="reports" onclick="nav('reports')"><i>📊</i>Reports</button>
+    <button data-v="profile" onclick="nav('profile')"><i>👤</i>Profile</button>
+  </nav>
+  <main id="main"></main>
+</div>
+
+<dialog id="modal"></dialog>
+<div id="toasts"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
